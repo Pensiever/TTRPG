@@ -1,5 +1,5 @@
 <p-accordion [multiple]="true">
-  <p-accordionTab header="Groupes">
+  <p-accordionTab id="test" header="Groupes">
     <ul>
       <li *ngfor="let chat of chatList; let i = index">
         <a [routerLink]="['/chat', chat.groupName]">{{chat.groupName}}</a>

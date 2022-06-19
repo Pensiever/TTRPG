@@ -1,36 +1,34 @@
-<nb-layout>
+<div class="layout-wrapper">
 
-  <nb-layout-header fixed>
-  <!-- Insert header here -->
-  </nb-layout-header>
+  <p-menubar [model]="items">
+    <ng-template pTemplate="start">
+      <img src="assets/LoginLogo.png" height="40" class="p-mr-2" alt="brand logo">
+      <h2>Questing Board</h2>
+    </ng-template>
+    <ng-template pTemplate="end">
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+            <input type="text" pInputText placeholder="Recherche" [(ngModel)]="searchValue">
+            <button type="button" pButton (click)="Clear()" pRipple icon="pi pi-refresh" styleClass="p-button-warn"></button>
+        </div>
+    </div>
+      <span class="right"><app-auth></app-auth></span>
+    </ng-template>
+  </p-menubar>
 
-  <nb-layout-column>
-    <nb-layout>
+  <div class="layout-sidebar">
+    <p-sidebar [(visible)]="display">
+      <app-nav></app-nav>
+    </p-sidebar>
+  </div>
 
-      <nb-layout-header fixed>
-        <h2>Questing Board</h2>
+  <div class="layout-main-container">
+    <div class="layout-main">
+      <router-outlet></router-outlet>
+    </div>
 
-        <span class="right"><app-auth></app-auth></span>
-      </nb-layout-header>
-
-      <nb-sidebar>
-        <app-nav></app-nav>
-      </nb-sidebar>
-
-      <nb-layout-column>
-        <router-outlet></router-outlet>
-      </nb-layout-column>
-
-      <nb-layout-footer slot="start" fixed>
+    <div class="layout-footer">
       <p>&copy; Ketsman Ruben 2022</p>
-      </nb-layout-footer>
-
-    </nb-layout>
-
-  </nb-layout-column>
-
-  <nb-layout-footer fixed>
-  <!-- Insert footer here -->
-  </nb-layout-footer>
-
-</nb-layout>
+    </div>
+  </div>
+</div>

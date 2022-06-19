@@ -1,10 +1,4 @@
-<span *ngIf="currentQuester == null">
-  <a [routerLink]="['/login']">Login</a> |
-<a [routerLink]="['/register']">S'enregister</a>
-</span>
-
-<span *ngIf="currentQuester != null">
+ <span *ngIf="currentQuester != null">
   <a [routerLink]="['/profile']" id="name-link">{{currentQuester.username}} </a>
-  <a [routerLink]="['/admin']" *ngIf="currentQuester.isAdmin" id="admin-link"> | Zone Admin</a>
-  <button nbButton (click)="logout()">Déconnection</button>
+  <button type="button" (click)="logout()" pButton icon="pi pi-power-off" style="margin-left:.25em">Déconnexion</button>
 </span>

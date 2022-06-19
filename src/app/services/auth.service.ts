@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Quester } from '../models/quester/quester.model';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { NbToastrService } from '@nebular/theme';
+import { Toast} from 'primeng/toast'
 import { QuesterService } from './quester.service';
 import { environment } from 'src/environments/environment';
 
@@ -43,7 +43,7 @@ export class AuthService {
   constructor(
     private _client : HttpClient,
     private _route : Router,
-    private _toast : NbToastrService,
+    private _toast : Toast,
     private _quester : QuesterService
   ) { }
 
@@ -58,7 +58,7 @@ export class AuthService {
         localStorage.setItem("role", this.currentQuester.isAdmin ? "admin" : "quester")
         localStorage.setItem('id', data.id.toString())
         this.emitQuester()
-        this._toast.info('Bienvenue, vous êtes connecté')
+        this._toast.messageService.add({severity:'info', summary: 'Bienvenu', detail:'Vous êtes connecté!'});
         this._route.navigate(['/home'])
         .then(() => {
           window.location.reload();

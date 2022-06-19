@@ -4,10 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbMenuModule, NbButtonModule, NbCardModule, NbIconModule, NbInputModule, NbListModule, NbDatepickerModule, NbDialogModule, NbToastrModule, NbSpinnerModule, NbSelectModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {AccordionModule} from 'primeng/accordion';
-
+import {SidebarModule} from 'primeng/sidebar';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuItem} from 'primeng/api';
+import {CardModule} from 'primeng/card';
+import {DividerModule} from 'primeng/divider';
+import {RippleModule} from 'primeng/ripple';
+import {ChipModule} from 'primeng/chip';
+import {PasswordModule} from 'primeng/password';
+import {FilterService} from 'primeng/api';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
+import {InputTextModule} from 'primeng/inputtext';
+import {VirtualScrollerModule} from 'primeng/virtualscroller';
+import {ToolbarModule} from 'primeng/toolbar';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth/auth.component';
@@ -37,22 +47,18 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NbThemeModule.forRoot({ name: 'cosmic' }),
-    NbLayoutModule,
-    NbEvaIconsModule,
-    NbSidebarModule.forRoot(),
-    NbMenuModule.forRoot(),
-    NbButtonModule,
-    NbCardModule,
-    NbIconModule,
-    NbInputModule,
-    NbListModule,
-    NbDatepickerModule.forRoot(),
-    NbDialogModule.forRoot(),
-    NbToastrModule.forRoot(),
-    NbSpinnerModule,
-    NbSelectModule,
-    AccordionModule
+    AccordionModule,
+    SidebarModule,
+    MenubarModule,
+    CardModule,
+    DividerModule,
+    RippleModule,
+    ChipModule,
+    PasswordModule,
+    ScrollPanelModule,
+    InputTextModule,
+    VirtualScrollerModule,
+    ToolbarModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
