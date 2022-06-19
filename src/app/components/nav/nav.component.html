@@ -1,0 +1,41 @@
+<p-accordion [multiple]="true">
+  <p-accordionTab header="Groupes">
+    <ul>
+      <li *ngfor="let chat of chatList; let i = index">
+        <a [routerLink]="['/chat', chat.groupName]">{{chat.groupName}}</a>
+      </li>
+    </ul>
+  </p-accordionTab>
+  <p-accordionTab header="Contacts">
+    <ng-template pTemplate="content">
+      <ul>
+        <li *ngfor="let contact of contactList; let i = index">
+          <a [routerLink]="['/contact', contact.username]">{{contact.username}}</a>
+        </li>
+      </ul>
+    </ng-template>
+  </p-accordionTab>
+  <p-accordionTab header="Favoris">
+    <p-accordion>
+      <p-accordionTab header="Jeux">
+        <ng-template pTemplate="content">
+          <ul>
+            <li *ngfor="let game of gameList; let i = index">
+              <a [routerLink]="['/game', game.id]">{{game.name}}</a>
+            </li>
+          </ul>
+        </ng-template>
+      </p-accordionTab>
+      <p-accordionTab header="Genres">
+        <ng-template pTemplate="content">
+          <ul>
+            <li *ngfor="let genre of genreList; let i = index">
+              <a [routerLink]="['/genre', genre.id]">{{genre.name}}</a>
+            </li>
+          </ul>
+        </ng-template>
+      </p-accordionTab>
+    </p-accordion>
+  </p-accordionTab>
+</p-accordion>
+<app-admin-nav *ngIf="isAdmin"></app-admin-nav>

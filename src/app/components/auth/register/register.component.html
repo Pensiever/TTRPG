@@ -1,1 +1,47 @@
-<p>register works!</p>
+<form [formGroup]="newQuesterFG" (ngSubmit)="onSubmit()">
+  <nb-card>
+      <nb-card-header>
+          <h5>Nouveau Quester</h5>
+      </nb-card-header>
+      <nb-card-body>
+          <nb-list>
+              <nb-list-item>
+              <nb-layout-column>
+                <nb-list>
+                    <nb-list-item>
+                        Pseudo
+                    </nb-list-item>
+                </nb-list>
+                <nb-list>
+                    <nb-list-item>
+                        Email
+                    </nb-list-item>
+                </nb-list>
+                <nb-list>
+                    <nb-list-item>
+                        Mot de passe
+                    </nb-list-item>
+                </nb-list>
+                <nb-list>
+                    <nb-list-item>
+                        Date de naissance
+                    </nb-list-item>
+                </nb-list>
+
+              </nb-layout-column>
+              <nb-layout-column style="border-left: black 1px solid;">
+                <p><input nbInput formControlName="username" type="text"></p>
+                <p><input nbInput [status]="(newQuesterFG.controls['email'].invalid && newQuesterFG.value['email'] != '') ? 'danger' : 'basic'" formControlName="email" type="email"></p>
+                <p><input nbInput [status]="(newQuesterFG.controls['password'].invalid && newQuesterFG.value['password'] != '') ? 'danger' : 'basic'" formControlName="password" type="password"></p>
+                <p><input nbInput formControlName="birthDate" type="date"></p>
+              </nb-layout-column>
+              <nb-layout-column></nb-layout-column>
+              <nb-layout-column></nb-layout-column>
+          </nb-list-item>
+          </nb-list>
+      </nb-card-body>
+      <nb-card-footer>
+           <p><button nbButton [disabled]="newQuesterFG.invalid">Enregistrer</button></p>
+      </nb-card-footer>
+  </nb-card>
+  </form>

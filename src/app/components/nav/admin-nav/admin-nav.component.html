@@ -1,0 +1,32 @@
+<p-accordion>
+  <p-accordionTab header="Espace Admin">
+    <ng-template pTemplate="content">
+      <p-accordion [multiple]="true">
+        <p-accordionTab header="Contributions">
+          <p-accordion>
+            <p-accordionTab header="Jeux">
+              <ng-template pTemplate="content">
+                <ul>
+                  <li *ngfor="let game of gameList; let i = index">
+                    <a href="/game{id}">{{game.title}}</a>
+                  </li>
+                </ul>
+              </ng-template>
+            </p-accordionTab>
+            <p-accordionTab header="Genres">
+              <ng-template pTemplate="content">
+                <ul>
+                  <li *ngfor="let genre of genreList; let i = index">
+                    <a href="/genre{id}">{{genre.title}}</a>
+                  </li>
+                </ul>
+              </ng-template>
+            </p-accordionTab>
+          </p-accordion>
+        </p-accordionTab>
+        <a href="/transgressions">Transgressions</a>
+        <a href="/setAdmin">Changer/Ajouter Admin</a>
+      </p-accordion>
+    </ng-template>
+  </p-accordionTab>
+</p-accordion>
