@@ -18,6 +18,13 @@ import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {InputTextModule} from 'primeng/inputtext';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
 import {ToolbarModule} from 'primeng/toolbar';
+import {ButtonModule} from 'primeng/button';
+import {CalendarModule} from 'primeng/calendar';
+import {ToastModule} from 'primeng/toast';
+import {MessageService} from 'primeng/api';
+import {ColorPickerModule} from 'primeng/colorpicker';
+import {PaginatorModule} from 'primeng/paginator';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth/auth.component';
@@ -27,7 +34,9 @@ import { TokenInterceptor } from './tools/token.interceptor';
 import { NavComponent } from './components/nav/nav.component';
 import { AdminNavComponent } from './components/nav/admin-nav/admin-nav.component';
 import { ChatComponent } from './components/chat/chat.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +47,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     NavComponent,
     AdminNavComponent,
     ChatComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProfileComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -58,10 +69,18 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ScrollPanelModule,
     InputTextModule,
     VirtualScrollerModule,
-    ToolbarModule
+    ToolbarModule,
+    ButtonModule,
+    CalendarModule,
+    ToastModule,
+    ColorPickerModule,
+    PaginatorModule,
+    OverlayPanelModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    MessageService,
+    FilterService
   ],
   bootstrap: [AppComponent]
 })

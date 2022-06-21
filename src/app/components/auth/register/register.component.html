@@ -1,47 +1,37 @@
-<form [formGroup]="newQuesterFG" (ngSubmit)="onSubmit()">
-  <p-card>
-      <p-cardheader>
-          <h5>Nouveau Quester</h5>
-      </nb-card-header>
-      <nb-card-body>
-          <nb-list>
-              <nb-list-item>
-              <nb-layout-column>
-                <nb-list>
-                    <nb-list-item>
-                        Pseudo
-                    </nb-list-item>
-                </nb-list>
-                <nb-list>
-                    <nb-list-item>
-                        Email
-                    </nb-list-item>
-                </nb-list>
-                <nb-list>
-                    <nb-list-item>
-                        Mot de passe
-                    </nb-list-item>
-                </nb-list>
-                <nb-list>
-                    <nb-list-item>
-                        Date de naissance
-                    </nb-list-item>
-                </nb-list>
+<form class="flex-auto" [formGroup]="newQuesterFG" (ngSubmit)="onSubmit()">
+  <p-card class="ui-card-title" header="Nouvel Aventurier">
+    <div>
+      <div class="block">
+        <label for="username" class="block text-900 font-medium mb-2 inline-block">Pseudo</label>&nbsp;
+        <input id="username" type="text" pInputText class="p-inputtext p-component p-element w-2 mb-3 inline-block" formControlName="username">
 
-              </nb-layout-column>
-              <nb-layout-column style="border-left: black 1px solid;">
-                <p><input nbInput formControlName="username" type="text"></p>
-                <p><input nbInput [status]="(newQuesterFG.controls['email'].invalid && newQuesterFG.value['email'] != '') ? 'danger' : 'basic'" formControlName="email" type="email"></p>
-                <p><input nbInput [status]="(newQuesterFG.controls['password'].invalid && newQuesterFG.value['password'] != '') ? 'danger' : 'basic'" formControlName="password" type="password"></p>
-                <p><input nbInput formControlName="birthDate" type="date"></p>
-              </nb-layout-column>
-              <nb-layout-column></nb-layout-column>
-              <nb-layout-column></nb-layout-column>
-          </nb-list-item>
-          </nb-list>
-      </nb-card-body>
-      <nb-card-footer>
-           <p><button nbButton [disabled]="newQuesterFG.invalid">Enregistrer</button></p>
-      </nb-card-footer>
-  </nb-card>
-  </form>
+        <label for="email" class="block text-900 font-medium mb-2 inline-block">Email</label>&nbsp;
+        <input id="email" type="email" pInputText class="p-inputtext p-component p-element w-2 mb-3 inline-block" formControlName="email">
+
+        <label for="birthdate" class="block text-900 font-medium mb-2">Année de Naissance</label>
+        <p-calendar id="birthdate" placeholder="AAAA/MM/JJ" formControlName="birthDate" [readonlyInput]="true" dateFormat="yy/mm/dd" [showButtonBar]="true"></p-calendar>
+
+        <label for="password1" class="block text-900 font-medium mb-2">Mot de Passe</label>
+        <input id="password1" type="password" pInputText class="p-inputtext p-component p-element w-full mb-3" formControlName="password">
+        <!-- <p-password [toggleMask]="true" class="p-password-content" inputId="passwordInput" weakLabel="Faible" mediumLabel="Moyen" strongLabel="Fort">
+          <input id="passwordInput" formControlName="password" type="password">
+          <ng-template pTemplate="header">
+            <h6>Choisis un Mot de Passe</h6>
+          </ng-template>
+          <ng-template pTemplate="footer">
+            <p-divider></p-divider>
+            <p class="mt-2">Suggestions</p>
+            <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+              <li>Au moins une minuscule</li>
+              <li>Au moins une majuscule</li>
+              <li>Au moins un numérique</li>
+              <li>Minimum 8 charactères</li>
+            </ul>
+          </ng-template>
+        </p-password> -->
+        <button pButton pRipple icon="pi pi-check" label="Valider" style="width: fit-content;" ngButtontype="submit" [disabled]="newQuesterFG.invalid"></button>
+      </div>
+    </div>
+  </p-card>
+</form>
+

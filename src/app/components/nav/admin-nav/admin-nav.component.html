@@ -1,11 +1,11 @@
-<p-accordion>
-  <p-accordionTab header="Espace Admin">
-    <ng-template pTemplate="content">
-      <p-accordion [multiple]="true">
-        <p-accordionTab header="Contributions">
-          <p-accordion>
-            <p-accordionTab header="Jeux">
-              <ng-template pTemplate="content">
+<p-accordion class="p-accordion">
+  <p-accordionTab class="p-accordion-header" header="Espace Admin">
+    <ng-template class="p-accordion-content" pTemplate="content">
+      <p-accordion class="p-accordion" [multiple]="true">
+        <p-accordionTab class="p-accordion-header" header="Contributions">
+          <p-accordion class="p-accordion">
+            <p-accordionTab class="p-accordion-header" header="Jeux">
+              <ng-template class="p-accordion-content" pTemplate="content">
                 <ul>
                   <li *ngfor="let game of gameList; let i = index">
                     <a href="/game{id}">{{game.title}}</a>
@@ -13,8 +13,8 @@
                 </ul>
               </ng-template>
             </p-accordionTab>
-            <p-accordionTab header="Genres">
-              <ng-template pTemplate="content">
+            <p-accordionTab class="p-accordion-header" header="Genres">
+              <ng-template class="p-accordion-content" pTemplate="content">
                 <ul>
                   <li *ngfor="let genre of genreList; let i = index">
                     <a href="/genre{id}">{{genre.title}}</a>
@@ -24,8 +24,12 @@
             </p-accordionTab>
           </p-accordion>
         </p-accordionTab>
-        <a href="/transgressions">Transgressions</a>
-        <a href="/setAdmin">Changer/Ajouter Admin</a>
+        <ng-template class="p-accordion-content" pTemplate="content">
+          <a href="/transgressions">Transgressions</a>
+        </ng-template>
+        <ng-template class="p-accordion-content" pTemplate="content">
+          <a href="/setAdmin">Changer/Ajouter Admin</a>
+        </ng-template>
       </p-accordion>
     </ng-template>
   </p-accordionTab>

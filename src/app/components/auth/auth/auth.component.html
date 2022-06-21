@@ -1,4 +1,7 @@
- <span *ngIf="currentQuester != null">
-  <a [routerLink]="['/profile']" id="name-link">{{currentQuester.username}} </a>
-  <button type="button" (click)="logout()" pButton icon="pi pi-power-off" style="margin-left:.25em">Déconnexion</button>
+<span *ngIf="currentQuester != null">
+  <button type="button" pButton icon="pi pi-user-edit" style="margin-left:.25em" [routerLink]="['/profile']"></button>
+  <button class="adjustContent" label="Déconnexion" iconPos="right" type="button" (click)="logout()" pButton icon="pi pi-power-off" style="margin-left:.25em"></button>
+</span>
+<span *ngIf="currentQuester === null">
+  <button label="Connexion" iconPos="right" type="button" pButton icon="pi pi-power-off" style="margin-left:.25em" [routerLink]="['/login']"></button>
 </span>

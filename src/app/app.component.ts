@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -15,4 +15,9 @@ export class AppComponent {
   Clear() {
     this.searchValue = '';
   }
+  constructor(private primengConfig: PrimeNGConfig) {}
+
+    ngOnInit() {
+      this.primengConfig.ripple = true;
+    }
 }

@@ -10,7 +10,7 @@ export class Quester {
   backgroundId : number;
   bio : string;
   onlinePlay : boolean;
-  offlinPlay : boolean;
+  offlinePlay : boolean;
   postalCode : number;
   token : string;
 }

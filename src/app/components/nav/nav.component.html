@@ -1,35 +1,37 @@
-<p-accordion [multiple]="true">
-  <p-accordionTab id="test" header="Groupes">
-    <ul>
-      <li *ngfor="let chat of chatList; let i = index">
-        <a [routerLink]="['/chat', chat.groupName]">{{chat.groupName}}</a>
-      </li>
-    </ul>
-  </p-accordionTab>
-  <p-accordionTab header="Contacts">
-    <ng-template pTemplate="content">
+<p-accordion class="p-accordion" [multiple]="true">
+  <p-accordionTab class="p-accordion-header" id="test" header="Groupes">
+    <ng-template class="p-accordion-content" pTemplate="content">
       <ul>
-        <li *ngfor="let contact of contactList; let i = index">
+        <li *ngFor="let chat of chatList; let i = index">
+          <a [routerLink]="['/chat', chat.roomName]">{{chat.roomName}}</a>
+        </li>
+      </ul>
+    </ng-template>
+  </p-accordionTab>
+  <p-accordionTab class="p-accordion-header" header="Contacts">
+    <ng-template class="p-accordion-content" pTemplate="content">
+      <ul>
+        <li *ngFor="let contact of contactList; let i = index">
           <a [routerLink]="['/contact', contact.username]">{{contact.username}}</a>
         </li>
       </ul>
     </ng-template>
   </p-accordionTab>
-  <p-accordionTab header="Favoris">
-    <p-accordion>
-      <p-accordionTab header="Jeux">
-        <ng-template pTemplate="content">
+  <p-accordionTab class="p-accordion-header" header="Favoris">
+    <p-accordion class="p-accordion">
+      <p-accordionTab class="p-accordion-header" header="Jeux">
+        <ng-template class="p-accordion-content" pTemplate="content">
           <ul>
-            <li *ngfor="let game of gameList; let i = index">
+            <li *ngFor="let game of gameList; let i = index">
               <a [routerLink]="['/game', game.id]">{{game.name}}</a>
             </li>
           </ul>
         </ng-template>
       </p-accordionTab>
-      <p-accordionTab header="Genres">
-        <ng-template pTemplate="content">
+      <p-accordionTab class="p-accordion-header" header="Genres">
+        <ng-template class="p-accordion-content" pTemplate="content">
           <ul>
-            <li *ngfor="let genre of genreList; let i = index">
+            <li *ngFor="let genre of genreList; let i = index">
               <a [routerLink]="['/genre', genre.id]">{{genre.name}}</a>
             </li>
           </ul>

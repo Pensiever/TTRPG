@@ -1,30 +1,30 @@
-<div _ngcontent-oop-c155="" class="align-items-center flex justify-content-center lg:px-8 md:px-6 px-4 py-8 surface-ground ng-star-inserted">
-  <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
-    <div id="LoginLogoContainer">
-      <img src="assets/LoginLogo.png" alt="Image" height="50" class="mb-3" id="LoginLogo">
-    </div>
-    <div id="Bienvenu">
-      <h2>Bienvenu</h2>
-    </div>
-    <div class="text-center mb-5">
-      <span class="text-600 font-medium line-height-3">Pas encore de compte?</span>
-      <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer" [routerLink]="['/register']">Créer un compte!</a>
-    </div>
-
+<form class="flex-auto" [formGroup]="loginFG" (ngSubmit)="onSubmit()">
+  <p-card>
     <div>
-      <form [formGroup]="loginFG" (ngSubmit)="onSubmit()">
-        <label for="email1" class="block text-900 font-medium mb-2">Email</label>
-        <input id="email1" type="text" pInputText class="p-inputtext p-component p-element w-full mb-3" formControlName="username">
+      <div id="LoginLogoContainer">
+        <img src="assets/LoginLogo.png" alt="Image" height="50" class="mb-3" id="LoginLogo">
+      </div>
+      <div id="Bienvenu" class="text-600">
+        <h2>Bienvenu</h2>
+      </div>
+      <div class="text-center mb-5 w-full">
+        <span class="text-600 font-medium line-height-3">Pas encore de compte? </span>
+        <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer" [routerLink]="['/register']">Créer un compte!</a>
+      </div>
+
+      <div>
+        <label for="username" class="block text-900 font-medium mb-2">Email</label>
+        <input id="username" type="text" pInputText class="p-inputtext p-component p-element w-full mb-3" formControlName="username">
 
         <label for="password1" class="block text-900 font-medium mb-2">Mot de Passe</label>
         <input id="password1" type="password" pInputText class="p-inputtext p-component p-element w-full mb-3" formControlName="password">
 
-        <button pButton pRipple label="Log In" icon="pi pi-user" class="w-full" ngButtontype="submit" [disabled]="loginFG.invalid">
+        <button pButton pRipple class="w-full" label="Log In" ngButtontype="submit" [disabled]="loginFG.invalid">
           <span class="p-button-icon p-button-icon-left pi pi-user" aria-hidden="true"></span>
-          <span class="p-button-label">Sign In</span>
+          <span class="p-button-label align-self-center"></span>
           <span class="p-ink"></span>
         </button>
-      </form>
+      </div>
     </div>
-  </div>
-</div>
+  </p-card>
+</form>

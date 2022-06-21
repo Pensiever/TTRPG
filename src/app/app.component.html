@@ -1,33 +1,34 @@
-<div class="layout-wrapper">
-
-  <p-menubar [model]="items">
+<div class="layout-wrapper surface-ground">
+  <p-toast></p-toast>
+  <p-menubar  [model]="items">
     <ng-template pTemplate="start">
-      <img src="assets/LoginLogo.png" height="40" class="p-mr-2" alt="brand logo">
-      <h2>Questing Board</h2>
+      <div class="flex justify-content-center align-items-center">
+        <img src="assets/LoginLogo.png" height="50px" class="p-mr-2 inline-block" alt="brand logo">&nbsp;&nbsp;
+        <h2 class="inline-block">Questing Board</h2>&nbsp;&nbsp;
+        <p-button type="button" (click)="display = true" icon="pi pi-bars"></p-button>
+      </div>
     </ng-template>
     <ng-template pTemplate="end">
-      <div class="col-12 md:col-4">
+      <div class="flex justify-content-center align-items-center">
         <div class="p-inputgroup">
-            <input type="text" pInputText placeholder="Recherche" [(ngModel)]="searchValue">
-            <button type="button" pButton (click)="Clear()" pRipple icon="pi pi-refresh" styleClass="p-button-warn"></button>
+          <input type="text" pInputText placeholder="Recherche" [(ngModel)]="searchValue">
+          <button type="button" pButton (click)="Clear()" pRipple icon="pi pi-refresh" styleClass="p-button-warn"></button>
         </div>
-    </div>
-      <span class="right"><app-auth></app-auth></span>
+        <span class="right inline-block"><app-auth></app-auth></span>
+      </div>
     </ng-template>
   </p-menubar>
 
   <div class="layout-sidebar">
-    <p-sidebar [(visible)]="display">
+    <p-sidebar [(visible)]="display" [baseZIndex]="10000">
       <app-nav></app-nav>
     </p-sidebar>
   </div>
 
-  <div class="layout-main-container">
-    <div class="layout-main">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="layout-content justify-content-center align-items-center flex">
+    <router-outlet></router-outlet>
 
-    <div class="layout-footer">
+    <div class="layout-footer justify-content-center align-items-center">
       <p>&copy; Ketsman Ruben 2022</p>
     </div>
   </div>

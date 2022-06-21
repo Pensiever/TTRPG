@@ -1,17 +1,28 @@
 .right{
   margin-left: auto;
   margin-right: 0;
+  width: fit-content;
 }
 
 .layout-wrapper {
   min-height: 100vh;
   overflow: hidden;
-  display: block;
+  display: flex;
   position: relative;
-  padding-bottom: 50px;
+  flex-direction: column;
+}
+
+.layout-content {
+  flex: 1 1 auto;
 }
 
 .layout-footer {
   position: absolute;
   bottom: 0;
+  flex: 0 1 40px;
+  color: #dedede;
+}
+
+.adjustContent {
+  width:fit-content;
 }

@@ -34,6 +34,7 @@
               "./node_modules/primeicons/primeicons.css",
               "./node_modules/primeng/resources/themes/luna-blue/theme.css",
               "./node_modules/primeng/resources/primeng.min.css",
+              "./node_modules/primeflex/primeflex.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -82,6 +83,7 @@
             }
           },
           "defaultConfiguration": "development"
+
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

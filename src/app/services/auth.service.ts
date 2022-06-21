@@ -3,9 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Quester } from '../models/quester/quester.model';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { Toast} from 'primeng/toast'
 import { QuesterService } from './quester.service';
 import { environment } from 'src/environments/environment';
+import { MessageService } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class AuthService {
 
   private baseAdress = environment.baseUrl;
 
-  currentQuester? : Quester;
+  currentQuester : Quester;
 
   get isConnected(): boolean {
     return localStorage.getItem('token') != null ? true : false
@@ -27,7 +27,7 @@ export class AuthService {
 
   emitQuester() {
     if(this.currentQuester == null && localStorage.getItem('id')) {
-      this._quester.getProfile(Number.parseInt(localStorage.getItem('id')??'')).subscribe((data : Quester) => {
+      this._quester.getProfile(Number.parseInt(localStorage.getItem('id'))).subscribe((data : Quester) => {
         this.currentQuester = data
         this.currentQuesterSubject.next(this.currentQuester)
       })
@@ -43,8 +43,8 @@ export class AuthService {
   constructor(
     private _client : HttpClient,
     private _route : Router,
-    private _toast : Toast,
-    private _quester : QuesterService
+    private _quester : QuesterService,
+    private messageService: MessageService
   ) { }
 
   login(username : string, password : string){
@@ -58,12 +58,12 @@ export class AuthService {
         localStorage.setItem("role", this.currentQuester.isAdmin ? "admin" : "quester")
         localStorage.setItem('id', data.id.toString())
         this.emitQuester()
-        this._toast.messageService.add({severity:'info', summary: 'Bienvenu', detail:'Vous êtes connecté!'});
+        this.messageService.add({severity:'info', summary: 'Bienvenu', detail:'Vous êtes connecté!', life:6000});
         this._route.navigate(['/home'])
         .then(() => {
           window.location.reload();
         });
-       },
+      },
       error : error =>  {console.log(error); console.log("Erreur")}
     })
   }
@@ -72,9 +72,10 @@ export class AuthService {
     this.currentQuester = null;
     localStorage.removeItem('token');
     localStorage.removeItem('role');
+    localStorage.removeItem('id');
     localStorage.clear()
     this.emitQuester()
-    this._route.navigate(['/home'])
+    this._route.navigate(['/login'])
     .then(() => {
       window.location.reload();
     });
