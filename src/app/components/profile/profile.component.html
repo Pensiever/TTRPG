@@ -33,14 +33,12 @@
       <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">{{currentQuester.bio}}</div>
       <div class="w-6 md:w-2 flex justify-content-end">
         <button pButton pRipple label="Changer" icon="pi pi-pencil" class="p-button-text" (click)="op.toggle($event)"></button>
-        <p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '450px'}">
-            <ng-template pTemplate>
+        <p-overlayPanel class="p-overlaypanel" #op [showCloseIcon]="true" [style]="{width: '450px'}">
+            <ng-template class="p-overlaypanel-content" pTemplate>
               <form [formGroup]="NewBioFG" (ngSubmit)="onSubmitBio()">
-                <div>
-                  <label for="bio" class="block text-900 font-medium mb-2 inline-block">Bio</label>&nbsp;
-                  <input id="bio" type="text" pInputText class="p-inputtext p-component p-element w-2 mb-3 inline-block" formControlName="bio">
-                  <button pButton pRipple icon="pi pi-check" label="Valider" style="width: fit-content;" ngButtontype="submit" [disabled]="NewBioFG.invalid"></button>
-                </div>
+                <label for="bio" class="block text-900 font-medium mb-2 inline-block">Bio</label>&nbsp;
+                <input id="bio" type="text" pInputText class="p-inputtext p-component p-element w-2 mb-3 inline-block" formControlName="bio">
+                <button pButton pRipple icon="pi pi-check" label="Valider" style="width: fit-content;" ngButtontype="submit" [disabled]="NewBioFG.invalid"></button>
               </form>
             </ng-template>
         </p-overlayPanel>
