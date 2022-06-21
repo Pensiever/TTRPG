@@ -25,14 +25,25 @@
       <div class="text-500 w-6 md:w-2 font-medium">Fond d'écran</div>
       <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Fond nº: {{currentQuester.backgroundId}}</div>
       <div class="w-6 md:w-2 flex justify-content-end">
-        <button pButton pRipple label="Changer" icon="pi pi-pencil" class="p-button-text"></button>
+        <button pButton pRipple label="Changer" icon="pi pi-pencil" class="p-button-text min-w-max"></button>
       </div>
     </li>
     <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
       <div class="text-500 w-6 md:w-2 font-medium">Bio</div>
       <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">{{currentQuester.bio}}</div>
       <div class="w-6 md:w-2 flex justify-content-end">
-        <button pButton pRipple label="Changer" icon="pi pi-pencil" class="p-button-text"></button>
+        <button pButton pRipple label="Changer" icon="pi pi-pencil" class="p-button-text" (click)="op.toggle($event)"></button>
+        <p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '450px'}">
+            <ng-template pTemplate>
+              <form [formGroup]="NewBioFG" (ngSubmit)="onSubmitBio()">
+                <div>
+                  <label for="bio" class="block text-900 font-medium mb-2 inline-block">Bio</label>&nbsp;
+                  <input id="bio" type="text" pInputText class="p-inputtext p-component p-element w-2 mb-3 inline-block" formControlName="bio">
+                  <button pButton pRipple icon="pi pi-check" label="Valider" style="width: fit-content;" ngButtontype="submit" [disabled]="NewBioFG.invalid"></button>
+                </div>
+              </form>
+            </ng-template>
+        </p-overlayPanel>
       </div>
     </li>
     <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">

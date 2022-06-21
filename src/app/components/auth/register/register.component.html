@@ -3,34 +3,37 @@
     <div>
       <div class="block">
         <label for="username" class="block text-900 font-medium mb-2 inline-block">Pseudo</label>&nbsp;
-        <input id="username" type="text" pInputText class="p-inputtext p-component p-element w-2 mb-3 inline-block" formControlName="username">
-
-        <label for="email" class="block text-900 font-medium mb-2 inline-block">Email</label>&nbsp;
-        <input id="email" type="email" pInputText class="p-inputtext p-component p-element w-2 mb-3 inline-block" formControlName="email">
-
-        <label for="birthdate" class="block text-900 font-medium mb-2">Année de Naissance</label>
-        <p-calendar id="birthdate" placeholder="AAAA/MM/JJ" formControlName="birthDate" [readonlyInput]="true" dateFormat="yy/mm/dd" [showButtonBar]="true"></p-calendar>
-
-        <label for="password1" class="block text-900 font-medium mb-2">Mot de Passe</label>
-        <input id="password1" type="password" pInputText class="p-inputtext p-component p-element w-full mb-3" formControlName="password">
-        <!-- <p-password [toggleMask]="true" class="p-password-content" inputId="passwordInput" weakLabel="Faible" mediumLabel="Moyen" strongLabel="Fort">
-          <input id="passwordInput" formControlName="password" type="password">
-          <ng-template pTemplate="header">
-            <h6>Choisis un Mot de Passe</h6>
-          </ng-template>
-          <ng-template pTemplate="footer">
-            <p-divider></p-divider>
-            <p class="mt-2">Suggestions</p>
-            <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
-              <li>Au moins une minuscule</li>
-              <li>Au moins une majuscule</li>
-              <li>Au moins un numérique</li>
-              <li>Minimum 8 charactères</li>
-            </ul>
-          </ng-template>
-        </p-password> -->
-        <button pButton pRipple icon="pi pi-check" label="Valider" style="width: fit-content;" ngButtontype="submit" [disabled]="newQuesterFG.invalid"></button>
+        <input id="username" type="text" pInputText class="p-inputtext p-component p-element w-4 mb-3 inline-block" formControlName="username">
       </div>
+      <div class="block">
+        <label for="email" class="block text-900 font-medium mb-2 inline-block">Email</label>&nbsp;
+        <input id="email" type="email" pInputText class="p-inputtext p-component p-element w-4 mb-3 inline-block" formControlName="email">
+      </div>
+
+      <label for="birthdate" class="block text-900 font-medium mb-2">Date de Naissance</label>
+      <p-calendar id="birthdate" placeholder="AAAA/MM/JJ" formControlName="birthDate" [readonlyInput]="true" dateFormat="yy/mm/dd" [showButtonBar]="true"></p-calendar>
+
+      <label for="password1" class="block text-900 font-medium mb-2">Mot de Passe</label>
+      <input id="password1" type="password" pInputText class="p-inputtext p-component p-element w-full mb-3" formControlName="password">
+      <!-- <p-password [toggleMask]="true" class="p-password-content" inputId="passwordInput" weakLabel="Faible" mediumLabel="Moyen" strongLabel="Fort">
+        <input id="passwordInput" formControlName="password" type="password">
+        <ng-template pTemplate="header">
+          <h6>Choisis un Mot de Passe</h6>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <p-divider></p-divider>
+          <p class="mt-2">Suggestions</p>
+          <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+            <li>Au moins une minuscule</li>
+            <li>Au moins une majuscule</li>
+            <li>Au moins un numérique</li>
+            <li>Minimum 8 charactères</li>
+          </ul>
+        </ng-template>
+      </p-password> -->
+      <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer block" [routerLink]="['/login']">Retourner au Login</a>
+      <br>
+      <button pButton pRipple icon="pi pi-check" label="Valider" style="width: fit-content;" ngButtontype="submit" [disabled]="newQuesterFG.invalid"></button>
     </div>
   </p-card>
 </form>

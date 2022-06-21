@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
+import { Quester } from './models/quester/quester.model';
+import { QuesterService } from './services/quester.service';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +12,25 @@ export class AppComponent {
   title = 'TTRPG';
   display : boolean;
   items: MenuItem[];
-  searchValue: string = null;
+  searchInput: string = null;
+  contact : string
+  contactList : string[] = []
 
   Clear() {
-    this.searchValue = '';
+    this.searchInput = '';
   }
-  constructor(private primengConfig: PrimeNGConfig) {}
+  constructor(
+    private primengConfig: PrimeNGConfig,
+    private _service : QuesterService
+  ) {}
 
-    ngOnInit() {
-      this.primengConfig.ripple = true;
-    }
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+    this._service.getAllQuesters().subscribe((data : Quester[]) => {
+      data.forEach(quester => {
+        this.contact = quester.username
+        this.contactList.push(this.contact)
+      });
+    })
+  }
 }

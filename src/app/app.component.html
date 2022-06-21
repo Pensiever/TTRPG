@@ -11,7 +11,7 @@
     <ng-template pTemplate="end">
       <div class="flex justify-content-center align-items-center">
         <div class="p-inputgroup">
-          <input type="text" pInputText placeholder="Recherche" [(ngModel)]="searchValue">
+          <input name="searchInput" onchange="op.toggle($event)" [(ngModel)]="searchInput" type="text" pInputText placeholder="Recherche">
           <button type="button" pButton (click)="Clear()" pRipple icon="pi pi-refresh" styleClass="p-button-warn"></button>
         </div>
         <span class="right inline-block"><app-auth></app-auth></span>
@@ -26,6 +26,17 @@
   </div>
 
   <div class="layout-content justify-content-center align-items-center flex">
+    <p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '450px'}">
+        <ng-template pTemplate>
+          <article>
+            <ul>
+              <li *ngFor="let contact of contactList | search: searchInput">
+                 {{contact.username}}
+              </li>
+            </ul>
+        </article>
+        </ng-template>
+    </p-overlayPanel>
     <router-outlet></router-outlet>
 
     <div class="layout-footer justify-content-center align-items-center">

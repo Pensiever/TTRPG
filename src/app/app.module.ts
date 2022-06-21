@@ -37,6 +37,7 @@ import { ChatComponent } from './components/chat/chat.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HomeComponent } from './components/home/home.component';
     ChatComponent,
     PageNotFoundComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
